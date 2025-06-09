@@ -57,13 +57,33 @@ export function BookingSystem() {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
+  const isFormValid = formData.name && formData.email && formData.phone &&
+                      formData.serviceType && formData.consultationType &&
+                      formData.preferredDate && formData.preferredTime;
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send data to your backend
-    console.log("Booking submitted:", formData);
+
+    if (!isFormValid) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const mailto = `mailto:info@spycyberinvestigation.com?subject=Consultation Request from ${formData.name}&body=${encodeURIComponent(
+      `Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Service Type: ${formData.serviceType}
+Consultation Type: ${formData.consultationType}
+Preferred Date: ${formData.preferredDate}
+Preferred Time: ${formData.preferredTime}
+Case Details: ${formData.message}`
+    )}`;
+
+    window.location.href = mailto;
+
     setIsSubmitted(true);
 
-    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setIsOpen(false);
@@ -80,10 +100,6 @@ export function BookingSystem() {
     }, 3000);
   };
 
-  const isFormValid = formData.name && formData.email && formData.phone &&
-                     formData.serviceType && formData.consultationType &&
-                     formData.preferredDate && formData.preferredTime;
-
   if (isSubmitted) {
     return (
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -97,10 +113,7 @@ export function BookingSystem() {
             <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Booking Confirmed!</h3>
             <p className="text-muted-foreground mb-4">
-              Thank you for scheduling a consultation. We'll contact you within 24 hours to confirm your appointment.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              You'll receive a confirmation email shortly with all the details.
+              Thank you for scheduling a consultation. Please check your email app to complete the process.
             </p>
           </div>
         </DialogContent>
