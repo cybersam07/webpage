@@ -3,9 +3,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { BookingSystem } from "@/components/BookingSystem";
-import { Search, Shield, Users, Eye, FileText, Clock, MapPin, Phone, Mail, CheckCircle, Menu } from "lucide-react";
+import { Search, Shield, Users, Eye, FileText, Clock, MapPin, Phone, Mail, Menu } from "lucide-react";
 
 export default function Home() {
+  const handleViewServicesClick = () => {
+    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -33,7 +37,10 @@ export default function Home() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={handleViewServicesClick}
+              >
                 View Services
               </Button>
               <BookingSystem />
@@ -70,7 +77,11 @@ export default function Home() {
             Where your privacy and confidentiality matters.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg"
+              onClick={handleViewServicesClick}
+            >
               View Services
             </Button>
             <BookingSystem />
@@ -210,7 +221,7 @@ export default function Home() {
               </div>
             </div>
             <p className="text-foreground text-lg mb-6">
-              Call or email for your free consultation and case evaluation. This can be done over the phone, virtual or in person.
+              Send an email for your case evaluation. This can be done virtually no matter your State or Country.
             </p>
             <div className="flex justify-center">
               <BookingSystem />
@@ -380,25 +391,18 @@ export default function Home() {
                 <CardContent className="p-6 text-center">
                   <Phone className="h-12 w-12 text-primary mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-foreground mb-2">Phone Consultation</h3>
-                  <p className="text-muted-foreground">Discuss your case over a secure phone call</p>
+                  <p className="text-muted-foreground">Discuss your case over a secure Whatsapp Chat</p>
                 </CardContent>
               </Card>
 
               <Card className="bg-card border-border">
                 <CardContent className="p-6 text-center">
                   <Search className="h-12 w-12 text-secondary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Video Meeting</h3>
-                  <p className="text-muted-foreground">Face-to-face consultation via secure video</p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Email</h3>
+                  <p className="text-muted-foreground">Discuss your case via secure end-to-end encrypted emails</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border-border">
-                <CardContent className="p-6 text-center">
-                  <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-foreground mb-2">In-Person Meeting</h3>
-                  <p className="text-muted-foreground">Meet at our office for a private discussion</p>
-                </CardContent>
-              </Card>
             </div>
 
             <div className="flex justify-center">
@@ -443,17 +447,14 @@ export default function Home() {
               <div>
                 <h3 className="text-2xl font-semibold text-foreground mb-6">Contact Information</h3>
                 <div className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <MapPin className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">P.O. Box 3984, Rancho Cucamonga, CA 91729</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">(909) 278-2350</span>
+                    <span className="text-muted-foreground">(951) 718-0850</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <span className="text-muted-foreground">info@spycyberinvestigation.com</span>
+                    <span className="text-muted-foreground">hackspycyber@gmail.com</span>
                   </div>
                 </div>
               </div>
@@ -462,7 +463,7 @@ export default function Home() {
                 <h4 className="text-xl font-semibold text-foreground mb-4">Open Hours</h4>
                 <div className="flex items-center space-x-3">
                   <Clock className="h-5 w-5 text-secondary" />
-                  <span className="text-muted-foreground">Today: 09:00 am - 06:00 pm</span>
+                  <span className="text-muted-foreground">Today: 07:00 am - 10:00 pm</span>
                 </div>
               </div>
             </div>
@@ -476,9 +477,6 @@ export default function Home() {
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
               © 2024 Spycyber Investigation and Protection, LLC. All rights reserved.
-            </p>
-            <p className="text-xs text-muted-foreground mt-2">
-              California License PI: 189675 / Registered Process Server: 1965
             </p>
           </div>
         </div>
