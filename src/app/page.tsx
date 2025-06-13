@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { BookingSystem } from "@/components/BookingSystem";
 import { Search, Menu } from "lucide-react";
