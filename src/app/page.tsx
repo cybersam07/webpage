@@ -1,9 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { BookingSystem } from "@/components/BookingSystem";
-import { Search, Shield, Users, Eye, FileText, Clock, MapPin, Phone, Mail, Menu } from "lucide-react";
+import { Search, Menu } from "lucide-react";
 
 export default function Home() {
   const handleViewServicesClick = () => {
